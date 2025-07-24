@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <div class="register_box">
+    <h1>Register New User</h1>
+    {% if error %}
+        <div style="color: red;">{{ error }}</div>
+    {% endif %}
+    {% if success %}
+        <div style="color: green;">{{ success }}</div>
+    {% endif %}
+    <form method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="password" name="confirm" placeholder="Confirm Password" required>
+        <input type="submit" name="submit" value="Register">
+    </form>
+    </div>
+</body>
+</html>

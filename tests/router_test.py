@@ -22,6 +22,8 @@ class TestRouterAndServer(unittest.TestCase):
     def test_route_registration(self):
         self.assertIn('/',route_table)
         self.assertIn('GET',route_table['/'])
+        self.assertIn("/register",route_table)
+        self.assertIn("GET",route_table["/register"])
 
     def test_get_home(self):
         environ = self.environ_base.copy()
@@ -30,6 +32,14 @@ class TestRouterAndServer(unittest.TestCase):
         result = app(environ,self.start_response)
         self.assertEqual(self.status,"200 OK")
         self.assertTrue(any(b'Bozhidar' in part for part in result))
+    
+    def test_get_register(self):
+        environ = self.environ_base.copy()
+        environ["PATH_INFO"] = "/register"
+        environ["REQUEST_METHOD"] = "GET"
+        result = app(environ,self.start_response)
+        self.assertEqual(self.status,"200 OK")
+        self.assertTrue(any(b"Register" in part for part in result))
     
     def test_404(self):
         environ = self.environ_base.copy()

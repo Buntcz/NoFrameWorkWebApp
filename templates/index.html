@@ -6,6 +6,13 @@
     <title>Main Page</title>
 </head>
 <body>
+    {% if name %}
     <h1>Hello, {{ name }}</h1>
+    {% else %}
+    <h1> You are not logged in</h1>
+    <a href="/login">Log In</a>
+    <h3>You don't have an account?</h3>
+    <a href="/register">register</a>
+    {% endif %}
 </body>
 </html>
