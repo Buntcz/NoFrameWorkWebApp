@@ -3,34 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
+    <title>Change Names</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <div class="container">
-        <h1>Register New User</h1>
+        <h1>Change Name</h1>
         {% if error %}
             <div class="error">{{ error }}</div>
         {% endif %}
+
         {% if success %}
             <div class="success">{{ success }}</div>
         {% endif %}
         <form method="post">
-            <input type="email" name="email" placeholder="E-mail" required>
             <input type="text" name="first_name" placeholder="First Name" required>
             <input type="text" name="last_name" placeholder="Last Name" required>
-            <input type="password" name="password" placeholder="Password" required>
-            <input type="password" name="confirm" placeholder="Confirm Password" required>
-            
-            <div class="captcha">
-                <p>Security Question: What is {{ captcha_question }}?</p>
-                <input type="text" name="captcha_answer" placeholder="Your answer" required>
-            </div>
-            <input type="hidden" name="captcha_expected" value="{{ captcha_expected }}">
-            <button type="submit">Register</button>
+            <button type="submit">Change Name</button>
         </form>
         <div class="nav-links">
-            <a href="/login">Already have an account? Login</a>
             <a href="/">Back to Home</a>
         </div>
     </div>

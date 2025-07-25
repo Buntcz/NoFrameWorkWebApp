@@ -4,16 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
+    <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
-    {% if name %}
-    <h1>Hello, {{ name }}</h1>
-    <a href="/logout">Log out</a>
-    {% else %}
-    <h1> You are not logged in</h1>
-    <a href="/login">Log In</a>
-    <h3>You don't have an account?</h3>
-    <a href="/register">register</a>
-    {% endif %}
+    <div class="container">
+        {% if name %}
+        <h1>Hello, {{ name }} {{ name2 }}!</h1>
+        <div class="nav-links">
+            <a href="/change-name">Change First and Last names</a>
+            <a href="/change-password">Change Password</a>
+            <a href="/logout">Log out</a>
+        </div>
+        {% else %}
+        <h1>You are not logged in</h1>
+        <div class="nav-links">
+            <a href="/login">Log In</a>
+        </div>
+        <h3>You don't have an account?</h3>
+        <div class="nav-links">
+            <a href="/register">Register</a>
+        </div>
+        {% endif %}
+    </div>
 </body>
 </html>
