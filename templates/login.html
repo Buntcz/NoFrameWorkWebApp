@@ -12,8 +12,11 @@
             <div style="color: red;">{{ error }}</div>
         {% endif %}
         <form method="post">
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="E-mail" required>
             <input type="password" name="password" placeholder="Password" required>
+            <label for="captcha">What is {{ captcha_question }}?</label>
+            <input type="text" name="captcha_answer" placeholder="Answer" required>
+            <input type="hidden" name="captcha_expected" value="{{ captcha_expected }}">
             <input type="submit" name="submit" value="Log In">
         </form>
     </div>

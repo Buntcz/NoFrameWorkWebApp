@@ -15,9 +15,14 @@
         <div style="color: green;">{{ success }}</div>
     {% endif %}
     <form method="post">
-        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="E-mail" required>
+        <input type="text" name="first_name" placeholder="First Name" required>
+        <input type="text" name="last_name" placeholder="Last Name" required>
         <input type="password" name="password" placeholder="Password" required>
         <input type="password" name="confirm" placeholder="Confirm Password" required>
+        <label for="captcha">What is {{ captcha_question }}</label>
+        <input type="text" name="captcha_answer" placeholder="Answer" required>
+        <input type="hidden" name="captcha_expected" value="{{ captcha_expected }}">
         <input type="submit" name="submit" value="Register">
     </form>
     </div>
